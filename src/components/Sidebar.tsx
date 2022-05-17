@@ -23,7 +23,7 @@ const Sidebar: FC<{ children: ReactNode }> = ({ children }) => {
           }`}
         >
           <AiOutlineArrowLeft
-            className="w-7 h-7 m-1"
+            className="w-7 h-7 m-1 "
             onClick={() => ctx.sidebarHandler(false)}
           />
         </div>
@@ -33,21 +33,19 @@ const Sidebar: FC<{ children: ReactNode }> = ({ children }) => {
           }`}
         >
           <MdMenu
-            className="w-7 h-7 m-1"
+            className="w-7 h-7 m-1 "
             onClick={() => ctx.sidebarHandler(true)}
           />
         </div>
       <header
-        className={`w-full bg-gray-100 flex flex-nowrap justify-end items-center gap-3 max-h-16 h-16 p-3 shadow-xl z-0`}
+        className={`w-full bg-gray-100  max-h-16 h-16 p-3 shadow-2xl flex flex-nowrap justify-end items-center gap-3`}
       >
-        
-
-        <h1
-          className={`text-[28px] font-semibold tracking-wider text-gray-700`}
-        >
-          Admin panel
-        </h1>
-        <img src={Pictograma} width="45px" height="45px" className="mr-5"/>
+            <h1
+              className={`text-[28px] font-semibold tracking-wider text-gray-700`}
+            >
+              Admin panel
+            </h1>
+            <img src={Pictograma} width="45px" height="45px" className="mr-5"/>
       </header>
       <div className="md:flex h-screen">
         <div

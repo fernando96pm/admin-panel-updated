@@ -1,9 +1,9 @@
 import { FC } from "react"
 import { User } from "../entities/User"
-import { MdDelete } from "react-icons/md"
 import Pictograma from '../assets/Pictograma.svg'
+import { MdDelete } from "react-icons/md"
 
-const UserItem:FC<{ user: User }> = ({ user }) => {
+const Member:FC<{ user: User }> = ({ user }) => {
     return (
         <div className="py-2 sm:py-4 my-2 flex justify-between items-center rounded-xl border-[1px] bg-gray-50 border-gray-300  shadow-md text-base">
             <div className="border-[2px] border-gray-200 rounded-2xl p-2 ml-2">
@@ -19,4 +19,4 @@ const UserItem:FC<{ user: User }> = ({ user }) => {
         </div>
     )
 }
-export default UserItem
+export default Member

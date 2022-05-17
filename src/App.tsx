@@ -11,30 +11,32 @@ import NotFound from "./pages/NotFound";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./Keycloak";
 import PrivateRoute from "./helpers/PrivateRoute";
+import GroupDetails from "./pages/GroupDetails";
+import { useState } from "react";
+import { Group } from "./entities/Group";
 
 
 const App = () => {
+  const [selectedGroup, setSelectedGroup] = useState<Group>()
   const location = useLocation();
   const atLogin = location.pathname === "/";
+
+  const groupDetailsHandler = (group: Group) => {
+    setSelectedGroup(group)
+  }
 
   return (
     <ReactKeycloakProvider authClient={keycloak}>
       {!atLogin && <Sidebar>
-        <div className="flex flex-1 h-screen min-h-screen bg-gradient-to-b from-[#c5c5c5] to-[#929292]">
+        <div className="">
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/admin" element={<Home />} />
             <Route path="/admin/users" element={<Users />} />
-            <Route
-              path="/admin/groups"
-              element={
-                <PrivateRoute>
-                  <Groups />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/admin/groups" element={ <Groups onDetails={groupDetailsHandler}/>} />
             <Route path="/admin/messages" element={<Messages />} />
             <Route path="/admin/graph" element={<Graph />} />
+            <Route path="/admin/groups/:id" element={<GroupDetails group={selectedGroup!}/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
