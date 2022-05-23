@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Group } from "../entities/Group";
-import { User } from "../entities/User";
 import Pictograma from "../assets/Pictograma.svg";
 import Member from "../components/Member";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { MdOutlineAddAPhoto } from 'react-icons/md'
+import MemberData from "../entities/MemberData";
 
 const GroupDetails: FC<{ group: Group }> = ({ group }) => {
   return (
@@ -41,8 +41,8 @@ const GroupDetails: FC<{ group: Group }> = ({ group }) => {
         </div>
         <div className="flex-col max-w-lg mx-auto bg-slate-500 rounded-md rounded-t-none">
           <ul className="p-2">
-            {group.members?.map((member: User) => (
-              <Member user={member} />
+            {group.members?.map((member: MemberData) => (
+              <Member member={member} />
             ))}
           </ul>
         </div>

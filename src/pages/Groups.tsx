@@ -8,12 +8,22 @@ import AdminPanelContext from "../store/AdminPanelContext";
 import { Group } from "../entities/Group";
 import GroupItem from "../components/GroupItem";
 import { FC } from "react";
+import MemberData from "../entities/MemberData";
 
 
-const membersTeralco:User[] = [
-  new User(1, "Fernando", "fernando@mail.com", undefined),
-  new User(2, "Jose", "jose@mail.com", undefined),
-  new User(3, "Rubén", "ruben@mail.com", undefined),
+const membersTeralco:MemberData[] = [
+  new MemberData(1, "Fernando", "fernando@mail.com", undefined, true),
+  new MemberData(2, "Jose", "jose@mail.com", undefined, true),
+  new MemberData(3, "Rubén", "ruben@mail.com", undefined, true),
+  new MemberData(1, "Fernando", "fernando@mail.com", undefined, true),
+  new MemberData(2, "Jose", "jose@mail.com", undefined, true),
+  new MemberData(3, "Rubén", "ruben@mail.com", undefined, true),
+  new MemberData(1, "Fernando", "fernando@mail.com", undefined, true),
+  new MemberData(2, "Jose", "jose@mail.com", undefined, true),
+  new MemberData(3, "Rubén", "ruben@mail.com", undefined, true),
+  new MemberData(1, "Fernando", "fernando@mail.com", undefined, true),
+  new MemberData(2, "Jose", "jose@mail.com", undefined, true),
+  new MemberData(3, "Rubén", "ruben@mail.com", undefined, true),
 ]
 const DUMMY_GROUPS:Group[] = [
     new Group(1, "Crysec", "normal", undefined),

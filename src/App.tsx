@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
 import Login from "./pages/Login";
 import { useLocation } from "react-router-dom";
 import Users from "./pages/Users";
@@ -10,10 +9,10 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./Keycloak";
-import PrivateRoute from "./helpers/PrivateRoute";
 import GroupDetails from "./pages/GroupDetails";
 import { useState } from "react";
 import { Group } from "./entities/Group";
+import Layout from "./components/Layout";
 
 
 const App = () => {
@@ -27,7 +26,7 @@ const App = () => {
 
   return (
     <ReactKeycloakProvider authClient={keycloak}>
-      {!atLogin && <Sidebar>
+      {!atLogin && <Layout>
         <div className="">
           <Routes>
             <Route path="/" element={<Login />} />
@@ -40,7 +39,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
-        </Sidebar>}
+        </Layout>}
     </ReactKeycloakProvider>
   );
 };

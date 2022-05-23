@@ -1,21 +1,23 @@
-import { User } from "./User";
+
+import MemberData from './MemberData';
+
 export class Group {
     id: number;
     name: string;
     type: string;
-    members: User[] | undefined;
+    members: MemberData[] | undefined;
 
-    constructor(id:number, name: string, type: string, members: User[] | undefined){
+    constructor(id:number, name: string, type: string, members: MemberData[] | undefined){
         this.id = id;
         this.name = name;
         this.type = type;
         this.members = members;
     }
 
-    addMember(user:User){
+    addMember(member: MemberData){
         if(this.members === undefined){
             this.members = []
         }
-        this.members.push(user)
+        this.members.push(member)
     }
 }
