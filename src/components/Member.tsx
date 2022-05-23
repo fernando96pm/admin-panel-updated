@@ -15,6 +15,9 @@ const Member:FC<{ user: User }> = ({ user }) => {
             </div>
             <div>
                 <MdDelete className="text-red-600 text-xl mr-2"/>
+                <div className="form-check form-switch">
+                    <input className="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked/>
+                  </div>
             </div>
         </div>
     )
