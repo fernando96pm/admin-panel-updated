@@ -10,15 +10,23 @@ import NotFound from "./pages/NotFound";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./Keycloak";
 import GroupDetails from "./pages/GroupDetails";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Group } from "./entities/Group";
 import Layout from "./components/Layout";
+import useHttp from "./hooks/use-http";
 
 
 const App = () => {
   const [selectedGroup, setSelectedGroup] = useState<Group>()
   const location = useLocation();
   const atLogin = location.pathname === "/";
+  const { companyHandler, usersHandler, groupsHandler } = useHttp();
+
+  useEffect(() => {
+    companyHandler();
+    usersHandler();
+    groupsHandler();
+  }, []);
 
   const groupDetailsHandler = (group: Group) => {
     setSelectedGroup(group)

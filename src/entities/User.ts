@@ -1,4 +1,4 @@
-export class User {
+class User {
     id: number;
     name: string;
     email: string;
@@ -11,3 +11,4 @@ export class User {
         this.image = image;
     }
 }
+export default User;

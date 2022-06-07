@@ -14,7 +14,7 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div className="flex-col">
       <header
-        className={`z-10 w-full bg-gray-100 absolute top-0 h-[10%] p-3 shadow-2xl flex flex-nowrap justify-between items-center gap-3`}
+        className={`z-10 w-full bg-gray-100 absolute top-0 h-[12%] p-3 shadow-2xl flex flex-nowrap justify-between items-center gap-3`}
       >
         <div className="cursor-pointer flex items-center justify-center">
           <div className={`${!ctx.sidebarOpened && "hidden"}`}>
@@ -32,14 +32,14 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
         </div>
         <div className="flex justify-center align-center">
           <h1
-            className={`text-[28px] mr-5 font-semibold tracking-wider text-gray-700`}
+            className={`text-[30px] mt-2 mr-5 font-semibold tracking-wider text-gray-700`}
           >
             Admin panel
           </h1>
           <img
             src={Pictograma}
-            width="45px"
-            height="45px"
+            width="55px"
+            height="55px"
             className="mr-5"
             alt="admin"
           />

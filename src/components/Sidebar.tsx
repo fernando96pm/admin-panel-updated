@@ -10,7 +10,7 @@ const Sidebar: FC<{ props: Array<NavigationLink> }> = ({ props }) => {
   const routerLinks = props.map((nav: NavigationLink) => {
     return (
       <Link to={nav.path}>
-        <li className="my-1 md:my-10 mb-1 md:mb-6 flex justify-start rounded-md p-2 cursor-pointer hover:bg-[#50b2bf] items-center">
+        <li className={`my-1 md:my-6 mb-1 md:mb-6 flex justify-start rounded-md p-2 ${ctx.sidebarOpened && 'cursor-pointer hover:bg-[#50b2bf]'} items-center`}>
           {ctx.sidebarOpened && (
             <>
               <div className="text-slate-50 text-3xl mt-1 ml-4 mr-10">{nav.icon}</div>
