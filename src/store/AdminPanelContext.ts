@@ -17,6 +17,8 @@ export type AdminPanelContextType = {
     companyUsersHandler: (users: User[]) => void;
     dummyUsersHandler: (users: UserDummy[]) => void;
     companyGroupsHandler: (groups: Group[]) => void;
+    dummyUsersAddHandler:(user: UserDummy) => void;
+    dummyUsersEditHandler: (dummyUser: UserDummy) => void;
 }
 const AdminPanelContext = createContext<AdminPanelContextType>({
     sidebarOpened: false,
@@ -31,7 +33,7 @@ const AdminPanelContext = createContext<AdminPanelContextType>({
     companyUsersHandler: (users: User[]) => {},
     companyGroupsHandler: (groups: Group[]) => {},
     dummyUsersHandler: (users: UserDummy[]) => {},
-    dummyUsersAddHandler: (dummyUser) => {},
-    dummyUsersEditHandler: (dummyUser) => {}
+    dummyUsersAddHandler: (dummyUser: UserDummy) => {},
+    dummyUsersEditHandler: (dummyUser: UserDummy) => {},
 })
 export default AdminPanelContext

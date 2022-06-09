@@ -1,28 +1,8 @@
 import UserItem from "../components/UserItem";
-import User from "../entities/User";
+import UserDummy from "../entities/UserDummy";
 import { MdSearch } from "react-icons/md";
-import PerfilUno from "../assets/profile/perfil-1.png"
-import PerfilDos from "../assets/profile/perfil-2.png"
-import PerfilTres from "../assets/profile/perfil-3.png"
-import PerfilCuatro from "../assets/profile/perfil-4.png"
-import PerfilCinco from "../assets/profile/perfil-5.png"
-import PerfilSeis from "../assets/profile/perfil-6.png"
-import PerfilSiete from "../assets/profile/perfil-7.png"
-import PerfilOcho from "../assets/profile/perfil-8.png"
-import PerfilNueve from "../assets/profile/perfil-9.png"
 import { useContext } from 'react';
 import AdminPanelContext from '../store/AdminPanelContext';
-
-const DUMMY_USERS: User[] = [
-  new User(1, "Fernando", "fernando@mail.com", PerfilUno),
-  new User(2, "Jose", "jose@mail.com", PerfilDos),
-  new User(3, "Rubén", "ruben@mail.com", PerfilTres),
-  new User(4, "Juan", "juan@mail.com", PerfilCuatro),
-  new User(5, "Blas", "blas@mail.com", PerfilCinco),
-  new User(6, "Gerard", "manu@mail.com", PerfilSeis),
-  new User(7, "Emilio", "emilio@mail.com", PerfilSiete),
-  new User(8, "Fran", "fran@mail.com", PerfilOcho),
-];
 
 const Users = () => {
 
@@ -53,7 +33,7 @@ const Users = () => {
           className={`flex-col p-2 bg-gray-100 rounded-lg shadow-xl mx-auto max-w-[500px] sm:w-[500px] lg:w-[500px]`}
         >
           <div className={`flex-col justify-center`}>
-            {ctx.companyUsers?.map((u) => (
+            {ctx.dummyUsers?.map((u) => (
               <UserItem user={u} />
             ))}
           </div>
