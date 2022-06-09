@@ -4,7 +4,8 @@ import { FC } from "react";
 import AdminPanelContext, { AdminPanelContextType } from "./AdminPanelContext";
 import Company from '../entities/Company';
 import User from '../entities/User';
-import { Group } from '../entities/Group';
+import {Group} from '../entities/Group';
+import UserDummy from "../entities/UserDummy";
 
 const AdminPanelContextProvider:FC<{ children: ReactNode}> = ({ children }) => {
 
@@ -12,6 +13,7 @@ const AdminPanelContextProvider:FC<{ children: ReactNode}> = ({ children }) => {
     const [companyId, setCompanyId] = useState<number>(2);
     const [company, setCompany] = useState<Company>();
     const [companyUsers, setCompanyUsers] = useState<User[]>();
+    const [dummyUsers, setDummyUsers] = useState<UserDummy[]>([]);
     const [companyGroups, setCompanyGroups] = useState<Group[]>();
 
     const sidebarHandler = (open:boolean) => setSidebarOpened(open)
@@ -19,18 +21,31 @@ const AdminPanelContextProvider:FC<{ children: ReactNode}> = ({ children }) => {
     const companyHandler = (company: Company) => setCompany(company)
     const companyUsersHandler = (users: User[]) => setCompanyUsers(users)
     const companyGroupsHandler = (groups: Group[]) => setCompanyGroups(groups)
+    const dummyUsersHandler = (dummyUsers: UserDummy[]) => setDummyUsers(dummyUsers)
+    const dummyUsersAddHandler = (dummyUser: UserDummy) => setDummyUsers(dummyUsers => [...dummyUsers, dummyUser])
+    const dummyUsersEditHandler = (dummyUser: UserDummy) => {
+        setDummyUsers(dummyUsers => {
+            let users: UserDummy[] = [...dummyUsers];
+            users[users.findIndex((user) => user.id == dummyUser.id)] = dummyUser;
+            return users;
+        });
+    }
 
     const contextValue: AdminPanelContextType = {
-        sidebarOpened: sidebarOpened,
-        companyId: companyId,
-        company: company,
-        companyUsers: companyUsers,
-        companyGroups: companyGroups,
-        sidebarHandler: sidebarHandler,
-        companyIdHandler: companyIdHandler,
-        companyHandler: companyHandler,
-        companyUsersHandler: companyUsersHandler,
-        companyGroupsHandler: companyGroupsHandler,
+        sidebarOpened,
+        companyId,
+        company,
+        companyUsers,
+        companyGroups,
+        dummyUsers,
+        sidebarHandler,
+        companyIdHandler,
+        companyHandler,
+        companyUsersHandler,
+        companyGroupsHandler,
+        dummyUsersHandler,
+        dummyUsersAddHandler,
+        dummyUsersEditHandler
     }
     return (
         <AdminPanelContext.Provider value={contextValue}>

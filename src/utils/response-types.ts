@@ -8,6 +8,12 @@ export type CrysecUserType = {
     name: string;
     email: string;
 }
+export type DummyUserType = {
+    id: number;
+    name: string;
+    surname: string;
+    company: string;
+}
 export type GroupType = {
     id: number;
     name: string;

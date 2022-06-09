@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import AdminPanelContext from '../store/AdminPanelContext';
 import Company from '../entities/Company';
 import User from '../entities/User'
-import { CompanyType, CrysecUserType, GroupType } from '../utils/response-types';
+import {CompanyType, CrysecUserType, DummyUserType, GroupType} from '../utils/response-types';
 import { Group } from '../entities/Group';
+import UserDummy from "../entities/UserDummy";
 
 
 
@@ -27,6 +28,14 @@ const useHttp = () => {
         ctx.companyUsersHandler(users)
     }
 
+    const getDummyUsersHandler = async() => {
+        const response = await fetch(`${url}/api/v1/user`);
+        const data: DummyUserType[] = await response.json();
+        const users: UserDummy[] = data.map(u => new UserDummy(u.id, u.name, u.surname, u.company))
+        ctx.dummyUsersHandler(users)
+    }
+
+
     const getCompanyGroupsHandler = async() => {
         const response = await fetch(`${url}/companies/${companyId}/groups`);
         const data: GroupType[] = await response.json();
@@ -39,6 +48,7 @@ const useHttp = () => {
         companyHandler: getCompanyHandler,
         usersHandler: getCompanyUsersHandler,
         groupsHandler: getCompanyGroupsHandler,
+        getDummyUsersHandler: getDummyUsersHandler,
     }
 }
 export default useHttp
